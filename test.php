@@ -7,7 +7,8 @@ if($DB -> connect_error){
 
 	mysqli_set_charset($DB,"utf8");
 	$name = $_POST['name'];
-	$DB->query("INSERT INTO  category (`name`) VALUES ('$name')");
+	$age = $_POST['age'];
+	$DB->query("INSERT INTO  test (`name`,`age`) VALUES ('$name','$age')");
 header("location:home.php");
 
 ?>

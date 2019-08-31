@@ -1,45 +1,29 @@
 <?php 
 session_start();
-if(!isset($_SESSION['lang'])){
-	$_SESSION['lang']="am";
+if(!isset($_SESSION['admin'])){
+	header("location:index.php");
+	die();
 }
-$lang = $_SESSION['lang'];
-include('admin/conf/connect.php');
-include($lang.".php");
+include('conf/connect.php');
+   ?>
 
-
-?>
 <!DOCTYPE html>
+
 <html>
 <head>
-	<title>Ֆիլմեր</title>
-	<link rel="icon" href="img/favicon.png" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="styles/fonts.css">
 </head>
 <body>
-	     <header class="navbar-fixed-top">
-	 <a href="lang.php?l=am" class="lang">Հայ</a>
-    <a href="lang.php?l=ru" class="lang">Ru</a>
-    <a href="lang.php?l=en" class="lang">ENG</a>
-        <nav>
-            <ul>
-                <li><a href="index.php"><?=$menu1?></a></li>
-                <li><a href="contact.php"><?=$menu2?></a></li>
-                 <li><a href="about.php"><?=$menu3?></a></li>
-            </ul>
-        </nav>
-     
-    </header>
-   
-    	<main>
-		<div id="left">
-			<?php
-			$request = $DB->query("SELECT * FROM category");
-			while($row=mysqli_fetch_array($request)){
-			echo "<a class='cat' href=''>".$row[$lang.'_name']."</a>";
-		}
-			?>
-				</div>
-		<div id="right">
-			 
+<main>
+	<div id="left">
+		 <h1>ADMINISTRATOR</h1>
+		 <a href="home.php">Categories</a>
+		 <a href="countries.php">Countries</a>
+		 <a href="quality.php">Quality</a>
+		 <a href="videos.php">Add New Videos</a>
+		 <a href="security.php">Security</a>
+		 <a href="exit.php">Exit</a>
+	</div>
+	<div id="right">
